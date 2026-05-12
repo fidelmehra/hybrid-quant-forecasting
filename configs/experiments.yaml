@@ -1,0 +1,47 @@
+# Experiment Configuration
+
+experiments:
+  baseline_arima:
+    model: arima
+    assets: [BTC-USD, SPY]
+    train_ratio: 0.7
+    val_ratio: 0.1
+    test_ratio: 0.2
+    walk_forward: true
+    window_size: 365
+
+  baseline_garch:
+    model: garch
+    order: [1, 1]
+    assets: [BTC-USD, SPY]
+    walk_forward: true
+
+  ml_xgboost:
+    model: xgboost
+    assets: [BTC-USD, SPY]
+    lag_features: [1, 2, 3, 5, 10, 20]
+    exogenous: true
+    hyperparameter_tuning: optuna
+    n_trials: 50
+
+  dl_lstm:
+    model: lstm
+    assets: [BTC-USD, SPY]
+    sequence_length: 60
+    hidden_units: 128
+    layers: 2
+    dropout: 0.2
+    epochs: 100
+    batch_size: 32
+
+  hybrid_arima_xgb:
+    model: arima_xgboost_residual
+    arima_order: auto
+    xgb_lag_features: [1, 2, 3, 5]
+    assets: [BTC-USD, SPY]
+
+  hybrid_garch_lstm:
+    model: garch_lstm
+    garch_order: [1, 1]
+    lstm_sequence_length: 30
+    assets: [BTC-USD]
