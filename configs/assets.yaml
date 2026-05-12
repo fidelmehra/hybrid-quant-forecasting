@@ -1,0 +1,33 @@
+# Asset Configuration
+
+assets:
+  crypto:
+    - symbol: BTC-USD
+      source: binance
+      frequency: daily
+      start_date: "2018-01-01"
+    - symbol: ETH-USD
+      source: binance
+      frequency: daily
+      start_date: "2018-01-01"
+
+  equities:
+    - symbol: SPY
+      source: yfinance
+      frequency: daily
+      start_date: "2010-01-01"
+    - symbol: QQQ
+      source: yfinance
+      frequency: daily
+      start_date: "2010-01-01"
+
+  macro:
+    - symbol: VIX
+      source: yfinance
+      frequency: daily
+    - series_id: DFF
+      source: fred
+      name: Federal Funds Rate
+    - series_id: CPIAUCSL
+      source: fred
+      name: CPI
