@@ -1,0 +1,40 @@
+# Metrics Configuration
+
+metrics:
+  point_forecast:
+    - name: rmse
+      description: Root Mean Squared Error
+      lower_is_better: true
+    - name: mae
+      description: Mean Absolute Error
+      lower_is_better: true
+    - name: mape
+      description: Mean Absolute Percentage Error
+      lower_is_better: true
+    - name: directional_accuracy
+      description: Percentage of correct direction predictions
+      lower_is_better: false
+
+  financial:
+    - name: sharpe_ratio
+      description: Risk-adjusted return
+      lower_is_better: false
+      risk_free_rate: 0.05
+    - name: max_drawdown
+      description: Maximum peak-to-trough loss
+      lower_is_better: true
+    - name: annualised_return
+      description: Annualised portfolio return
+      lower_is_better: false
+
+  regimes:
+    - calm
+    - trending
+    - crash
+
+  statistical_tests:
+    diebold_mariano:
+      enabled: true
+    model_confidence_set:
+      enabled: true
+      alpha: 0.1
